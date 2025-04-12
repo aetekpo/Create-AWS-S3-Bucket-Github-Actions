@@ -1,12 +1,12 @@
-name: addS3BucketAWS   # This assigns a name to the workflow.
-'on': # The workflow runs manually via the GitHub UI (not automatically on push/pull requests).
-  workflow_dispatch: null
-jobs: # This job defines a single job named build that is running on Ubuntu-latest virtual machine.
+name: addS3BucketAWS
+'on':
+  workflow_dispatch:
+jobs:
   build:
     runs-on: ubuntu-latest
-    steps: # Checks out your repository code (though not strictly needed for this S3 operation).
+    steps:
       - uses: actions/checkout@master
-      - name: Upload to S3   # Create S3 Bucket.
+      - name: Upload to S3
         run: |
           aws s3 mb s3://<ae-test-bucket-1982honore>
         env:
